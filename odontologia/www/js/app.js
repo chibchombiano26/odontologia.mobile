@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'hefesoft.pubnub', 'hefesoft.parse'])
+angular.module('starter', ['ionic', 'starter.controllers', 'hefesoft.pubnub', 'hefesoft.parse', 'pubnub.angular.service'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -28,7 +28,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'hefesoft.pubnub', 'h
 
   window.fbAsyncInit = function() {
     Parse.FacebookUtils.init({ // this line replaces FB.init({
-      appId      : '{facebook-app-id}', // Facebook App ID
+      appId      : '1482696718726490', // Facebook App ID
       status     : false,  // check Facebook Login status
       cookie     : true,  // enable cookies to allow Parse to access the session
       xfbml      : true,  // initialize Facebook social plugins on the page
