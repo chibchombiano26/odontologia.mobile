@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, parseService) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, parseService, pubNubService) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -26,7 +26,16 @@ angular.module('starter.controllers', [])
 
   // Open the login modal
   $scope.login = function() {
-    parseService.loginFb();
+    //parseService.loginFb();
+    parseService.loginOpenFb().then(function(result){
+      var imagenUsuario = Parse.User.current().get("pictureUrl");
+      var email = Parse.User.current().get("email");
+      
+      pubNubService.initialise(email);
+      console.log(imagenUsuario);
+      alert(imagenUsuario);
+    })
+    
   };
 
   // Perform the login action when the user submits the login form
@@ -48,6 +57,13 @@ angular.module('starter.controllers', [])
     { title: 'Dubstep', id: 3 },
     { title: 'Indie', id: 4 },
   ];
+})
+
+.controller('userDataCtrl', function($scope){
+  $scope.urlPicture = Parse.User.current().get("pictureUrl");
+  $scope.name = Parse.User.current().get("name");
+  $scope.email = Parse.User.current().get("email");
+  
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {

@@ -4,10 +4,13 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'hefesoft.pubnub', 'hefesoft.parse', 'pubnub.angular.service'])
+angular.module('starter', ['ionic', 'starter.controllers', 'hefesoft.pubnub', 'hefesoft.parse', 'pubnub.angular.service', 'ngCordova', 'ngOpenFB'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, ngFB) {
   $ionicPlatform.ready(function() {
+    
+    ngFB.init({appId: '1482696718726490'});
+    
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -69,7 +72,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'hefesoft.pubnub', 'h
       url: '/browse',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/browse.html',
+          controller: 'userDataCtrl'
         }
       }
     })
