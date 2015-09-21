@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, parseService, pubNubService) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, parseService, pubNubService, $state) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -32,8 +32,7 @@ angular.module('starter.controllers', [])
       var email = Parse.User.current().get("email");
       
       pubNubService.initialise(email);
-      console.log(imagenUsuario);
-      alert(imagenUsuario);
+      $state.go("app.browse");
     })
     
   };

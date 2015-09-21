@@ -16,6 +16,8 @@ angular.module('hefesoft.parse')
     }
     
     dataFactory.loginOpenFb = function(){
+        
+      Parse.User.logOut();
       var deferred = $q.defer();
       $ionicLoading.show();
       

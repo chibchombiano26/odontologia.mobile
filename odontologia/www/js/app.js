@@ -77,14 +77,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'hefesoft.pubnub', 'h
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
+    .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'AppCtrl'
     })
 
   .state('app.single', {
@@ -92,10 +88,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'hefesoft.pubnub', 'h
     views: {
       'menuContent': {
         templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        controller: 'AppCtrl'
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/login');
 });
