@@ -3,12 +3,14 @@
 
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout, agendaService) {
     // Form data for the login modal
     $scope.loginData = {};
     $scope.isExpanded = false;
     $scope.hasHeaderFabLeft = false;
     $scope.hasHeaderFabRight = false;
+    
+    agendaService.test();
 
     var navIcons = document.getElementsByClassName('ion-navicon');
     for (var i = 0; i < navIcons.length; i++) {
